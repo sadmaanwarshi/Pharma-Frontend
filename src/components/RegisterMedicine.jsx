@@ -65,46 +65,80 @@ export default function RegisterMedicine() {
         <div className="max-w-2xl mx-auto bg-white p-6 md:p-8 rounded-xl shadow-lg">
           <h2 className="text-2xl font-bold mb-6">Register New Medicine</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Medicine Name (e.g., Acetaminophen 500mg)"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27A292]"
-              value={form.name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="batch"
-              placeholder="Batch Numbers"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27A292]"
-              value={form.batch}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="date"
-              name="expiry"
-              
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27A292]"
-              value={form.expiry}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="manufacturer"
-              placeholder="Manufacturer Name"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27A292]"
-              value={form.manufacturer}
-              onChange={handleChange}
-              required
-            />
-            <button type="submit" className="w-full bg-[#27A292] text-white py-3 rounded-lg font-semibold hover:bg-[#208375] transition-colors disabled:opacity-50" disabled={loading}>
-              {loading ? <LoadingSpinner /> : 'Register Medicine'}
-            </button>
-          </form>
+
+  {/* Medicine Name */}
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      Medicine Name
+    </label>
+    <input
+      type="text"
+      name="name"
+      placeholder="e.g., Acetaminophen 500mg"
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27A292]"
+      value={form.name}
+      onChange={handleChange}
+      required
+    />
+  </div>
+
+  {/* Batch Number */}
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      Batch Number
+    </label>
+    <input
+      type="text"
+      name="batch"
+      placeholder="e.g., BATCH-2025-001"
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27A292]"
+      value={form.batch}
+      onChange={handleChange}
+      required
+    />
+  </div>
+
+  {/* Expiry Date */}
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      Expiry Date
+    </label>
+    <input
+      type="date"
+      name="expiry"
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27A292]"
+      value={form.expiry}
+      onChange={handleChange}
+      required
+    />
+  </div>
+
+  {/* Manufacturer Name */}
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      Manufacturer Name
+    </label>
+    <input
+      type="text"
+      name="manufacturer"
+      placeholder="e.g., ABC Pharma Pvt Ltd"
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27A292]"
+      value={form.manufacturer}
+      onChange={handleChange}
+      required
+    />
+  </div>
+
+  <button
+    type="submit"
+    className="w-full bg-[#27A292] text-white py-3 rounded-lg font-semibold hover:bg-[#208375] transition-colors disabled:opacity-50"
+    disabled={loading}
+  >
+    {loading ? <LoadingSpinner /> : 'Register Medicine'}
+  </button>
+
+</form>
+
 
           {message && !loading && <p className="mt-4 text-center text-sm text-green-600">{message}</p>}
 
